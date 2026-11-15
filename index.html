@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17110b" />
+
+    <title>KAMCUR SPACE | Coffee, People &amp; Good Space</title>
+    <meta
+      name="description"
+      content="KAMCUR SPACE: kopi susu gula aren, Indomie, dan ruang buat pulang malam. Buka tiap hari 17.00–01.00 di samping SPBU Cipocok."
+    />
+    <meta name="author" content="KAMCUR SPACE" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="KAMCUR SPACE | Coffee, People & Good Space" />
+    <meta
+      property="og:description"
+      content="Good coffee, good people, good space. Buka tiap hari 17.00–01.00 di samping SPBU Cipocok."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KAMCUR SPACE, Good Coffee. Good People. Good Space." />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KAMCUR SPACE | Coffee, People & Good Space" />
+    <meta name="twitter:description" content="Good coffee, good people, good space." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo-kamcur.jpg" />
+    <link rel="preload" as="image" href="/logo-kamcur-wordmark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="loader" id="loader">
+      <div class="loader__inner">
+        <img
+          class="loader__logo"
+          src="/logo-kamcur-wordmark-light.png"
+          alt="KAMCUR SPACE"
+          width="923"
+          height="463"
+          fetchpriority="high"
+        />
+        <div class="loader__bar"><span class="loader__fill" id="loaderFill"></span></div>
+        <p class="loader__meta">Good Coffee · Good People · Good Space</p>
+      </div>
+    </div>
+
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+
+    <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+    <header class="nav" id="nav">
+      <a class="nav__logo" href="#home" aria-label="KAMCUR SPACE, kembali ke atas">
+        <img
+          class="nav__logo-img"
+          src="/logo-kamcur-wordmark.png"
+          alt=""
+          width="923"
+          height="463"
+          fetchpriority="high"
+        />
+      </a>
+
+      <nav class="nav__links" aria-label="Navigasi utama">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#space">The Space</a>
+        <a href="#social">Social</a>
+        <a href="#visit">Visit</a>
+      </nav>
+
+      <a
+        class="nav__cta"
+        href="https://www.instagram.com/kamcurspace_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg>
+      </a>
+
+      <button
+        class="nav__burger"
+        id="navBurger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+        aria-label="Buka menu navigasi"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <nav aria-label="Navigasi mobile">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#space">The Space</a>
+        <a href="#social">Social</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <p>Buka tiap hari<br />17.00–01.00</p>
+        <a
+          href="https://www.instagram.com/kamcurspace_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >@kamcurspace_</a
+        >
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="hero" id="home">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <h1 class="hero__title">
+              <span class="hero__line"><span>Ngopi</span></span>
+              <span class="hero__line"
+                ><span class="is-accent"
+                  >dulu<svg class="hero__star" viewBox="0 0 100 100" aria-hidden="true">
+                    <path
+                      d="M50 2 61 34l33 3-25 22 8 33-27-18-27 18 8-33L6 37l33-3z"
+                    /></svg></span
+              ></span>
+              <span class="hero__line hero__line--serif"
+                ><span>Pulang belakangan.</span></span
+              >
+            </h1>
+
+            <p class="hero__desc" data-hero="fade">
+              Kopi susu gula aren 15 ribu, Indomie telor, dan meja panjang di samping
+              SPBU Cipocok. Buka tiap hari 17.00 sampai 01.00, kadang offside.
+            </p>
+
+            <div class="hero__actions" data-hero="fade">
+              <a class="btn btn--solid" href="#menu">Lihat menu dan harga</a>
+              <a
+                class="btn btn--ghost"
+                href="https://www.google.com/maps/search/?api=1&query=Terminal+Cipocok"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka rute ke Cipocok</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__foot">
+          <span class="hero__foot-label">Lihat suasananya</span>
+          <span class="hero__scroll" aria-hidden="true"><i></i></span>
+          <span class="hero__foot-label">Cipocok, tiap malam</span>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Good Coffee</span><i>✳</i><span>Good People</span><i>✳</i
+          ><span>Good Space</span><i>✳</i><span>Buka 17.00–01.00</span><i>✳</i
+          ><span>Cipocok</span><i>✳</i><span>Good Coffee</span><i>✳</i
+          ><span>Good People</span><i>✳</i><span>Good Space</span><i>✳</i
+          ><span>Buka 17.00–01.00</span><i>✳</i><span>Cipocok</span><i>✳</i>
+        </div>
+      </div>
+
+      <section class="about" id="about">
+        <div class="section-head">
+          <h2 class="section-title reveal">
+            Bukan sekadar<br /><em>tempat ngopi.</em>
+          </h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__copy">
+            <p class="about__lead reveal">
+              Buat kami, tiga hal itu satu paket: kopi yang jujur, orang-orang yang
+              asik, dan ruang yang bikin betah.
+            </p>
+            <p class="reveal">
+              KAMCUR SPACE adalah tempat singgah setelah kuliah, setelah kerja, atau
+              setelah bingung mau ke mana. Duduk, pesan kopi, buka laptop, ngobrol
+              sampai larut. Semuanya boleh.
+            </p>
+            <p class="reveal">
+              Nggak ada dress code, nggak ada pretensi. Cuma kopi yang dibuat
+              beneran, harga yang masuk akal, dan lampu yang tetap nyala sampai
+              jam satu.
+            </p>
+
+            <a class="link-arrow reveal" href="#menu">
+              Lihat menu kami
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10h11M11 5l5 5-5 5" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="about__pillars">
+            <article class="pillar reveal">
+              <span class="pillar__num">01</span>
+              <h3>Good Coffee</h3>
+              <p>Espresso, kopi susu gula aren, sampai matcha. Dibuat pas pesanan.</p>
+            </article>
+            <article class="pillar reveal">
+              <span class="pillar__num">02</span>
+              <h3>Good People</h3>
+              <p>Barista yang ngobrol, bukan cuma mesin kasir. Nongkrong jadi enak.</p>
+            </article>
+            <article class="pillar reveal">
+              <span class="pillar__num">03</span>
+              <h3>Good Space</h3>
+              <p>Terbuka, santai, dan nyala sampai larut. Kadang offside, tapi selalu.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="about__stats reveal">
+          <div class="stat">
+            <strong>17<small>.00</small></strong>
+            <span>Buka sore</span>
+          </div>
+          <div class="stat">
+            <strong>01<small>.00</small></strong>
+            <span>Tutup dini hari</span>
+          </div>
+          <div class="stat">
+            <strong>15<small>K</small></strong>
+            <span>Mulai dari</span>
+          </div>
+          <div class="stat stat--note">
+            <p>“Kadang offside.”</p>
+            <span>kami apa adanya</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu" id="menu">
+        <div class="menu__head">
+          <div>
+            <h2 class="section-title section-title--light reveal">
+              Murah,<br /><em>tapi niat.</em>
+            </h2>
+          </div>
+          <p class="menu__intro reveal">
+            Semua dibuat pas dipesan. Harga jujur, porsi jujur. Pilih kategori atau
+            lihat semuanya.
+          </p>
+        </div>
+
+        <div class="menu__filters" role="group" aria-label="Filter kategori menu">
+          <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">
+            Semua
+          </button>
+          <button class="chip" type="button" data-filter="kopi" aria-pressed="false">Kopi</button>
+          <button class="chip" type="button" data-filter="laen-kopi" aria-pressed="false">
+            Laen Kopi
+          </button>
+          <button class="chip" type="button" data-filter="cemilan" aria-pressed="false">
+            Cemilan
+          </button>
+          <button class="chip" type="button" data-filter="laper" aria-pressed="false">
+            Laper
+          </button>
+        </div>
+
+        <div class="menu__columns">
+          <div class="menu__group" data-group="drinks">
+            <h3 class="menu__group-title">Aneka Minuman</h3>
+
+            <h4 class="menu__sub">Kopi</h4>
+            <div class="menu__list">
+              <article class="menu-item reveal" data-cat="kopi">
+                <span class="menu-item__idx">01</span>
+                <div class="menu-item__body">
+                  <h5>Americano</h5>
+                  <p>Espresso + water.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="kopi">
+                <span class="menu-item__idx">02</span>
+                <div class="menu-item__body">
+                  <h5>Kamcur</h5>
+                  <p>Kopi susu gula aren.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="kopi">
+                <span class="menu-item__idx">03</span>
+                <div class="menu-item__body">
+                  <h5>Spanish</h5>
+                  <p>Susu kental manis + espresso.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+            </div>
+
+            <h4 class="menu__sub">Laen Kopi</h4>
+            <div class="menu__list">
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">04</span>
+                <div class="menu-item__body">
+                  <h5>Red Velvet</h5>
+                  <p>Susu + red velvet powder.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">05</span>
+                <div class="menu-item__body">
+                  <h5>Matcha</h5>
+                  <p>Susu + matcha powder.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">06</span>
+                <div class="menu-item__body">
+                  <h5>Taro</h5>
+                  <p>Susu + taro powder.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">07</span>
+                <div class="menu-item__body">
+                  <h5>Blackforest</h5>
+                  <p>Susu + blackforest powder.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">08</span>
+                <div class="menu-item__body">
+                  <h5>Josu</h5>
+                  <p>Extra Joss + susu.</p>
+                </div>
+                <span class="menu-item__price">10K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">09</span>
+                <div class="menu-item__body">
+                  <h5>Bisu</h5>
+                  <p>Kukubima + susu.</p>
+                </div>
+                <span class="menu-item__price">10K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">10</span>
+                <div class="menu-item__body">
+                  <h5>Teh Tarik</h5>
+                  <p>Teh tarik manis unik.</p>
+                </div>
+                <span class="menu-item__price">10K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">11</span>
+                <div class="menu-item__body">
+                  <h5>Milo</h5>
+                  <p>Susu + Milo.</p>
+                </div>
+                <span class="menu-item__price">10K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">12</span>
+                <div class="menu-item__body">
+                  <h5>Lemon Tea</h5>
+                  <p>Teh + lemon powder.</p>
+                </div>
+                <span class="menu-item__price">12K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laen-kopi">
+                <span class="menu-item__idx">13</span>
+                <div class="menu-item__body">
+                  <h5>Air Putih</h5>
+                  <p>God's gift of water.</p>
+                </div>
+                <span class="menu-item__price">5K</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu__group" data-group="food">
+            <h3 class="menu__group-title">Aneka Makanan</h3>
+
+            <h4 class="menu__sub">Cemilan</h4>
+            <div class="menu__list">
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">14</span>
+                <div class="menu-item__body">
+                  <h5>Intel</h5>
+                  <p>Indomie + telor.</p>
+                </div>
+                <span class="menu-item__price">12K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">15</span>
+                <div class="menu-item__body">
+                  <h5>Nasi Telor</h5>
+                  <p>Nasi + telor dinosaurus.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">16</span>
+                <div class="menu-item__body">
+                  <h5>Nasi Nugget</h5>
+                  <p>Nasi + nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">17</span>
+                <div class="menu-item__body">
+                  <h5>Intel Beredar</h5>
+                  <p>Indomie + telor dadar.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">18</span>
+                <div class="menu-item__body">
+                  <h5>Omget</h5>
+                  <p>Omlet + nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">15K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="cemilan">
+                <span class="menu-item__idx">19</span>
+                <div class="menu-item__body">
+                  <h5>Nasi Soget</h5>
+                  <p>Nasi + sosis tempur + nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">19K</span>
+              </article>
+            </div>
+
+            <h4 class="menu__sub">Laper</h4>
+            <div class="menu__list">
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">20</span>
+                <div class="menu-item__body">
+                  <h5>Kentang</h5>
+                  <p>Kentang goreng abadi.</p>
+                </div>
+                <span class="menu-item__price">14K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">21</span>
+                <div class="menu-item__body">
+                  <h5>Nugget</h5>
+                  <p>Nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">14K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">22</span>
+                <div class="menu-item__body">
+                  <h5>Kensos</h5>
+                  <p>Kentang + sosis tempur.</p>
+                </div>
+                <span class="menu-item__price">17K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">23</span>
+                <div class="menu-item__body">
+                  <h5>Kenget</h5>
+                  <p>Kentang + nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">17K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">24</span>
+                <div class="menu-item__body">
+                  <h5>Sosget</h5>
+                  <p>Sosis tempur + nugget orang kaya.</p>
+                </div>
+                <span class="menu-item__price">17K</span>
+              </article>
+              <article class="menu-item reveal" data-cat="laper">
+                <span class="menu-item__idx">25</span>
+                <div class="menu-item__body">
+                  <h5>Rujak Cireng</h5>
+                  <p>Cireng + sambalado cocol.</p>
+                </div>
+                <span class="menu-item__price">17K</span>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <p class="menu__note reveal">
+          Harga dalam ribuan rupiah. Harga dan ketersediaan dapat berubah sewaktu-waktu.
+        </p>
+      </section>
+
+      <section class="space" id="space">
+        <div class="space__head">
+          <h2 class="section-title reveal">Suasana yang<br /><em>nggak dibuat-buat.</em></h2>
+          <p class="space__intro reveal">
+            Meja panjang, lampu hangat, dan orang-orang yang lupa waktu. Foto bar
+            sudah masuk. Sisanya menyusul.
+          </p>
+        </div>
+
+        <div class="space__viewport" id="spaceViewport">
+          <div class="space__track" id="spaceTrack">
+            <article class="frame frame--photo">
+              <span class="frame__index">01</span>
+              <div class="frame__art">
+                <img
+                  class="frame__img"
+                  src="./bar-space.png"
+                  alt="Bar KAMCUR SPACE"
+                  width="445"
+                  height="471"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="frame__foot">
+                <p>Bar KAMCUR, tempat pesanan dibuat.</p>
+                <span class="frame__badge">Bar</span>
+              </div>
+            </article>
+            <article class="frame frame--b">
+              <span class="frame__index">02</span>
+              <div class="frame__art" aria-hidden="true">
+                <span class="frame__arch"></span>
+                <span class="frame__lamp"></span>
+              </div>
+              <div class="frame__foot">
+                <p>Lampu hangat sampai jam satu.</p>
+                <span class="frame__badge">Foto menyusul</span>
+              </div>
+            </article>
+            <article class="frame frame--c">
+              <span class="frame__index">03</span>
+              <div class="frame__art" aria-hidden="true">
+                <span class="frame__type">GOOD<br />PEOPLE</span>
+              </div>
+              <div class="frame__foot">
+                <p>Meja panjang buat obrolan panjang.</p>
+                <span class="frame__badge">Foto menyusul</span>
+              </div>
+            </article>
+            <article class="frame frame--d">
+              <span class="frame__index">04</span>
+              <div class="frame__art" aria-hidden="true">
+                <span class="frame__bean frame__bean--1"></span>
+                <span class="frame__bean frame__bean--2"></span>
+                <span class="frame__bean frame__bean--3"></span>
+              </div>
+              <div class="frame__foot">
+                <p>Biji kopi, bukan dekorasi.</p>
+                <span class="frame__badge">Foto menyusul</span>
+              </div>
+            </article>
+            <article class="frame frame--e">
+              <span class="frame__index">05</span>
+              <div class="frame__art" aria-hidden="true">
+                <span class="frame__neon">OPEN<br />LATE</span>
+              </div>
+              <div class="frame__foot">
+                <p>Buka tiap hari, kadang offside.</p>
+                <span class="frame__badge">Foto menyusul</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p class="space__hint" aria-hidden="true">
+          <span>Geser</span>
+          <svg viewBox="0 0 40 12"><path d="M0 6h36M31 1l6 5-6 5" /></svg>
+        </p>
+      </section>
+
+      <section class="social" id="social">
+        <div class="social__inner">
+          <h2 class="section-title section-title--light reveal">
+            Kami nongkrong<br /><em>di sini juga.</em>
+          </h2>
+          <p class="social__copy reveal">
+            Info menu baru, jam buka dadakan, sampai dokumentasi malam-malam panjang.
+            Semua mampir dulu ke Instagram.
+          </p>
+
+          <a
+            class="social__handle reveal"
+            href="https://www.instagram.com/kamcurspace_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>@kamcurspace_</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1.1" />
+            </svg>
+          </a>
+
+          <div class="social__grid" aria-hidden="true">
+            <div class="social__tile social__tile--1"><span>GOOD</span></div>
+            <div class="social__tile social__tile--2"><span>COFFEE</span></div>
+            <div class="social__tile social__tile--3"><span>GOOD</span></div>
+            <div class="social__tile social__tile--4"><span>SPACE</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit" id="visit">
+        <div class="visit__info">
+          <h2 class="section-title reveal">Mampir,<br /><em>jangan cuma lihat.</em></h2>
+
+          <div class="visit__block reveal">
+            <h3>Lokasi</h3>
+            <p>Samping SPBU Cipocok<br />Seberang Terminal Cipocok</p>
+          </div>
+
+          <div class="visit__block reveal">
+            <h3>Jam Buka</h3>
+            <p>Open every day<br />17.00–01.00</p>
+            <span class="visit__note">Kadang offside, cek Instagram dulu.</span>
+          </div>
+
+          <div class="visit__actions reveal">
+            <a
+              class="btn btn--solid"
+              href="https://www.google.com/maps/search/?api=1&query=Terminal+Cipocok"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buka Google Maps
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10h11M11 5l5 5-5 5" />
+              </svg>
+            </a>
+            <a
+              class="btn btn--ghost"
+              href="https://www.instagram.com/kamcurspace_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+            >
+          </div>
+        </div>
+
+        <div class="visit__map reveal">
+          <iframe
+            title="Peta lokasi KAMCUR SPACE di sekitar Terminal Cipocok"
+            src="https://maps.google.com/maps?q=Terminal%20Cipocok&z=16&output=embed"
+            width="800"
+            height="600"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+          <div class="visit__map-tag">
+            <span class="visit__map-logo" aria-hidden="true">
+              <img
+                src="/logo-kamcur-wordmark.png"
+                alt=""
+                width="923"
+                height="463"
+                loading="lazy"
+              />
+            </span>
+            <p>KAMCUR SPACE<em>Cipocok</em></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__top">
+        <img
+          class="footer__logo"
+          src="/logo-kamcur-wordmark-light.png"
+          alt="KAMCUR SPACE"
+          width="923"
+          height="463"
+          loading="lazy"
+        />
+        <p class="footer__tagline">Coffee, people, and a place to come back to.</p>
+      </div>
+      <div class="footer__bottom">
+        <p>Good Coffee. Good People. Good Space.</p>
+        <nav class="footer__links" aria-label="Tautan footer">
+          <a href="#menu">Menu</a>
+          <a href="#visit">Lokasi</a>
+          <a
+            href="https://www.instagram.com/kamcurspace_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+        </nav>
+        <button class="motion-toggle" id="motionToggle" type="button" role="switch" aria-checked="true">
+          <span class="motion-toggle__dot" aria-hidden="true"></span>
+          Motion
+        </button>
+        <p class="footer__copy">© <span id="year">2026</span> KAMCUR SPACE</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
