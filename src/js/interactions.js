@@ -150,6 +150,241 @@ export function initInteractions() {
     })
   })
 
+  /* ------------------------------------------------------------- ordering */
+  const orderDialog = document.getElementById('orderDialog')
+  const orderBar = document.getElementById('orderBar')
+  const orderLines = document.getElementById('orderLines')
+  const orderEmpty = document.getElementById('orderEmpty')
+  const orderSend = document.getElementById('orderSend')
+  const orderClear = document.getElementById('orderClear')
+  const orderName = document.getElementById('orderName')
+  const orderNote = document.getElementById('orderNote')
+  const orderFeedback = document.getElementById('orderFeedback')
+  const toast = document.getElementById('toast')
+
+  const menuItems = Array.from(document.querySelectorAll('.menu-item'))
+  const itemsByIndex = new Map()
+  const order = new Map()
+  let toastTimer = null
+
+  const formatRupiah = (value) =>
+    new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      maximumFractionDigits: 0,
+    }).format(value)
+
+  const showToast = (message) => {
+    if (!toast) return
+    toast.textContent = message
+    toast.classList.add('is-visible')
+    window.clearTimeout(toastTimer)
+    toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2800)
+  }
+
+  const showOrderFeedback = (message) => {
+    if (orderFeedback) orderFeedback.textContent = message
+  }
+
+  const getOrderTotal = () =>
+    Array.from(order.entries()).reduce((total, [index, qty]) => {
+      const item = itemsByIndex.get(index)
+      return item ? total + item.price * qty : total
+    }, 0)
+
+  const copyText = async (text) => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text)
+        return true
+      }
+    } catch {}
+
+    const area = document.createElement('textarea')
+    area.value = text
+    area.setAttribute('readonly', '')
+    area.style.position = 'fixed'
+    area.style.top = '-1000px'
+    document.body.appendChild(area)
+    area.select()
+
+    let copied = false
+    try {
+      copied = document.execCommand('copy')
+    } catch {}
+
+    area.remove()
+    return copied
+  }
+
+  menuItems.forEach((item) => {
+    const index = item.querySelector('.menu-item__idx')?.textContent.trim() || ''
+    const name = item.querySelector('.menu-item__name')?.textContent.trim() || ''
+    const priceText = item.querySelector('.menu-item__price')?.textContent.trim() || ''
+    const price = Number(priceText.replace(/[^\d]/g, '')) * 1000
+
+    if (!index || !name || !price) return
+
+    itemsByIndex.set(index, { index, name, price, priceText })
+    item.setAttribute('aria-label', `Tambah ${name} ke pesanan, ${priceText}`)
+
+    item.addEventListener('click', () => {
+      order.set(index, (order.get(index) || 0) + 1)
+      item.classList.add('is-added')
+      window.setTimeout(() => item.classList.remove('is-added'), 700)
+      updateOrder()
+      showToast(`${name} masuk pesanan.`)
+    })
+  })
+
+  const updateOrder = () => {
+    if (!orderBar) return
+
+    const entries = Array.from(order.entries())
+    const count = entries.reduce((total, [, qty]) => total + qty, 0)
+    const total = getOrderTotal()
+    const hasItems = count > 0
+
+    orderBar.hidden = !hasItems
+    document.querySelectorAll('[data-order-count]').forEach((element) => {
+      element.textContent = String(count)
+    })
+    document.querySelectorAll('[data-order-total]').forEach((element) => {
+      element.textContent = formatRupiah(total)
+    })
+
+    if (orderSend) orderSend.disabled = !hasItems
+    if (orderClear) orderClear.disabled = !hasItems
+    if (orderEmpty) orderEmpty.hidden = hasItems
+
+    if (orderLines) {
+      orderLines.hidden = !hasItems
+      orderLines.innerHTML = entries
+        .map(([index, qty]) => {
+          const item = itemsByIndex.get(index)
+          if (!item) return ''
+          const removeLabel = qty === 1 ? `Hapus ${item.name}` : `Kurangi ${item.name}`
+
+          return `
+            <article class="order-line">
+              <div class="order-line__copy">
+                <p class="order-line__name">${item.name}</p>
+                <p class="order-line__unit">${item.priceText} x ${qty}</p>
+              </div>
+              <div class="order-line__side">
+                <div class="order-line__controls">
+                  <button
+                    class="qty"
+                    type="button"
+                    data-order-step="-1"
+                    data-order-id="${item.index}"
+                    aria-label="${removeLabel}"
+                  >-</button>
+                  <span class="order-line__qty">${qty}</span>
+                  <button
+                    class="qty"
+                    type="button"
+                    data-order-step="1"
+                    data-order-id="${item.index}"
+                    aria-label="Tambah ${item.name}"
+                  >+</button>
+                </div>
+                <strong class="order-line__total">${formatRupiah(item.price * qty)}</strong>
+              </div>
+            </article>
+          `
+        })
+        .join('')
+    }
+  }
+
+  const openDialog = (dialog) => {
+    if (!dialog) return
+    if (!dialog.open) dialog.showModal()
+    document.body.classList.add('is-modal-open')
+  }
+
+  if (orderDialog) {
+    orderDialog.querySelectorAll('[data-close]').forEach((button) => {
+      button.addEventListener('click', () => orderDialog.close())
+    })
+
+    orderDialog.addEventListener('click', (event) => {
+      if (event.target === orderDialog) orderDialog.close()
+    })
+
+    orderDialog.addEventListener('close', () => {
+      document.body.classList.remove('is-modal-open')
+    })
+  }
+
+  document.querySelectorAll('[data-order-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      showOrderFeedback('')
+      openDialog(orderDialog)
+    })
+  })
+
+  orderLines?.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-order-step]')
+    if (!button) return
+
+    const index = button.dataset.orderId
+    const next = (order.get(index) || 0) + Number(button.dataset.orderStep)
+    if (next <= 0) order.delete(index)
+    else order.set(index, next)
+    updateOrder()
+  })
+
+  orderClear?.addEventListener('click', () => {
+    order.clear()
+    updateOrder()
+    showOrderFeedback('Pesanan dikosongkan.')
+  })
+
+  orderName?.addEventListener('input', () => {
+    if (!orderName.value.trim()) return
+    orderName.removeAttribute('aria-invalid')
+    orderName.closest('.field')?.classList.remove('is-invalid')
+  })
+
+  orderSend?.addEventListener('click', async () => {
+    if (!order.size) return
+
+    if (!orderName?.value.trim()) {
+      orderName?.setAttribute('aria-invalid', 'true')
+      orderName?.closest('.field')?.classList.add('is-invalid')
+      orderName?.focus()
+      showOrderFeedback('Isi nama atau nomor meja dulu.')
+      return
+    }
+
+    const lines = Array.from(order.entries()).map(([index, qty], position) => {
+      const item = itemsByIndex.get(index)
+      return `${position + 1}. ${item.name} x${qty} = ${formatRupiah(item.price * qty)}`
+    })
+    const note = orderNote?.value.trim()
+    const message = [
+      'Pesanan KAMCUR SPACE',
+      ...lines,
+      '',
+      `Total: ${formatRupiah(getOrderTotal())}`,
+      `Nama/meja: ${orderName.value.trim()}`,
+    ]
+
+    if (note) message.push(`Catatan: ${note}`)
+    message.push('', 'Dikirim dari website KAMCUR SPACE.')
+
+    const copied = await copyText(message.join('\n'))
+    showOrderFeedback(
+      copied
+        ? 'Pesanan disalin. Buka Instagram, lalu tempel di DM.'
+        : 'Pesanan siap. Buka Instagram, lalu salin manual.',
+    )
+  })
+
+  updateOrder()
+
   /* -------------------------------------------------- active nav section */
   const sections = Array.from(document.querySelectorAll('main section[id]'))
   const navLinks = Array.from(document.querySelectorAll('.nav__links a'))

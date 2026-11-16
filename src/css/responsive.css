@@ -272,16 +272,21 @@
   }
 
   .menu-item {
-    grid-template-columns: 30px 1fr auto;
+    grid-template-columns: 30px 1fr auto 22px;
     gap: 8px;
   }
 
-  .menu-item__body h5 {
+  .menu-item__name {
     font-size: 0.96rem;
   }
 
-  .menu-item__body p {
+  .menu-item__desc {
     font-size: 0.78rem;
+  }
+
+  .menu-item__add {
+    width: 22px;
+    height: 22px;
   }
 
   .space {
