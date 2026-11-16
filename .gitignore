@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Local preview logs
+preview.out
+preview.err
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
